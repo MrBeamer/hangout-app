@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--leafletjs map integration-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="sidebar">
+        <div class="header">
+          <img
+            src="https://res.cloudinary.com/dxdboxbyb/image/upload/v1614435722/hangout-app/c6sjqakfau1ww9tdhysm.png"
+            alt=""
+          />
+        </div>
+        <form>
+          <div class="form__row">
+            <label for="distance">Distance in km</label>
+            <p class="range-field">
+              <input type="range" id="distance" min="0" max="20" />
+            </p>
+          </div>
+
+          <div class="form__row">
+            <label for="distance">Duration in min</label>
+            <p class="range-field">
+              <input type="range" id="duration" min="0" max="120" />
+            </p>
+          </div>
+
+          <div class="form__row">
+            <label for="distance">Romantic Level</label>
+            <p class="range-field">
+              <input type="range" id="romanticLvl" min="0" max="3" />
+            </p>
+          </div>
+
+          <div class="form__row">
+            <label for="distance">Beauty Level</label>
+            <p class="range-field">
+              <input type="range" id="beautyLvl" min="0" max="3" />
+            </p>
+          </div>
+
+          <div class="switch input-field">
+            <label>
+              Casual
+              <input type="checkbox" id="walkType" />
+              <span class="lever"></span>
+              Date
+            </label>
+          </div>
+
+          <button type="submit" class="btn form__btn">Submit</button>
+        </form>
+      </div>
+      <div id="map"></div>
+    </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>

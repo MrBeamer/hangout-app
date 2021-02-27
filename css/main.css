@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* App container  */
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  padding: 25px;
+  grid-column-gap: 40px;
+}
+
+/* sidebar container  */
+.sidebar {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+/* header container */
+.header {
+  text-align: center;
+  padding: 40px 40px 0 40px;
+}
+
+.header img {
+  width: 51%;
+}
+
+/* form container  */
+form {
+  padding: 40px 40px 0 40px;
+}
+
+/* select {
+  display: inline !important;
+} */
+
+form .btn {
+  display: none;
+}
+
+/* Map API */
+#map {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
