@@ -17,12 +17,13 @@
 .sidebar {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
+  overflow-y: scroll;
 }
 
 /* header container */
 .header {
   text-align: center;
-  padding: 40px 40px 40px 40px;
+  margin: 40px 40px 40px 40px;
 }
 
 .header img {
@@ -48,13 +49,24 @@ form .btn {
   border-radius: 3px;
 }
 
+/* Generated cards */
+
 .walks {
   display: grid;
   grid-row-gap: 20px;
-  padding-right: 20px;
-  padding-left: 20px;
+  justify-content: center;
 }
 
 ul .walk {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 0 20px 20px 20px;
+}
+
+.walk__title {
+  font-size: 32px;
+}
+
+.walk__details {
+  display: inline;
+  margin-right: 10px;
 }
