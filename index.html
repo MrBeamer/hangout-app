@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/main.css" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!--leafletjs map integration-->
     <link
       rel="stylesheet"
@@ -39,52 +40,93 @@
             alt=""
           />
         </div>
-        <form>
-          <div class="form__row">
-            <label for="distance">Distance in km</label>
-            <p class="range-field">
-              <input type="range" id="distance" min="0" max="20" />
-            </p>
-          </div>
+        <ul class="walks">
+          <form class="hidden">
+            <div class="form__row">
+              <label for="distance">Distance in km</label>
+              <p class="range-field">
+                <input type="range" id="distance" min="0" max="20" />
+              </p>
+            </div>
 
-          <div class="form__row">
-            <label for="distance">Duration in min</label>
-            <p class="range-field">
-              <input type="range" id="duration" min="0" max="120" />
-            </p>
-          </div>
+            <div class="form__row">
+              <label for="distance">Duration in min</label>
+              <p class="range-field">
+                <input type="range" id="duration" min="0" max="120" />
+              </p>
+            </div>
 
-          <div class="form__row">
-            <label for="distance">Romantic Level</label>
-            <p class="range-field">
-              <input type="range" id="romanticLvl" min="0" max="3" />
-            </p>
-          </div>
+            <div class="form__row">
+              <label for="distance">Romantic Level</label>
+              <p class="range-field">
+                <input type="range" id="romanticLvl" min="0" max="3" />
+              </p>
+            </div>
 
-          <div class="form__row">
-            <label for="distance">Beauty Level</label>
-            <p class="range-field">
-              <input type="range" id="beautyLvl" min="0" max="3" />
-            </p>
-          </div>
+            <div class="form__row">
+              <label for="distance">Ambience</label>
+              <p class="range-field">
+                <input type="range" id="ambience" min="0" max="3" step="0" />
+              </p>
+            </div>
 
-          <div class="switch input-field">
-            <label>
-              Casual
-              <input type="checkbox" id="walkType" />
-              <span class="lever"></span>
-              Date
-            </label>
-          </div>
+            <div class="input-field">
+              <select id="walkType">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="casual">Casual</option>
+                <option value="romantic">Romantic</option>
+              </select>
+              <label>Type of walk</label>
+            </div>
 
-          <button type="submit" class="btn form__btn">Submit</button>
-        </form>
+            <button type="submit" class="btn form__btn">Submit</button>
+          </form>
+
+          <li class="walk walk--casual" data-id="22323223">
+            <h2 class="walk__title"></h2>
+            <div class="walk__details">
+              <span class="walk__icon">👣</span>
+              <span class="walk__value">10</span>
+              <span class="walk__unit">km</span>
+            </div>
+            <div class="walk__details">
+              <span class="walk__icon">⏱</span>
+              <span class="walk__value">43</span>
+              <span class="walk__unit">min</span>
+            </div>
+
+            <div class="walk__details">
+              <span class="walk__icon">Ambience Level</span>
+              <span class="walk__value">⭐️⭐️⭐️</span>
+            </div>
+          </li>
+
+          <li class="walk walk--date" data-id="12323223">
+            <h2 class="walk__title"></h2>
+            <div class="walk__details">
+              <span class="walk__icon">👣</span>
+              <span class="walk__value">10</span>
+              <span class="walk__unit">km</span>
+            </div>
+            <div class="walk__details">
+              <span class="walk__icon">⏱</span>
+              <span class="walk__value">43</span>
+              <span class="walk__unit">min</span>
+            </div>
+
+            <div class="walk__details">
+              <span class="walk__icon">Romantic Level</span>
+              <span class="walk__value">❤️❤️❤️</span>
+            </div>
+          </li>
+        </ul>
       </div>
       <div id="map"></div>
     </div>
 
     <!--JavaScript at end of body for optimized loading-->
-    <script src="js/main.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

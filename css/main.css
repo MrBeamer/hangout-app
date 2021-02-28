@@ -22,7 +22,7 @@
 /* header container */
 .header {
   text-align: center;
-  padding: 40px 40px 0 40px;
+  padding: 40px 40px 40px 40px;
 }
 
 .header img {
@@ -31,12 +31,12 @@
 
 /* form container  */
 form {
-  padding: 40px 40px 0 40px;
+  padding: 40px 40px 40px 40px;
 }
 
-/* select {
-  display: inline !important;
-} */
+.hidden {
+  display: none;
+}
 
 form .btn {
   display: none;
@@ -46,4 +46,15 @@ form .btn {
 #map {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
+}
+
+.walks {
+  display: grid;
+  grid-row-gap: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+ul .walk {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
