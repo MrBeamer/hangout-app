@@ -124,7 +124,9 @@ class App {
     // const { lat, lng } = event.latlng;
     // const coords = [lat, lng];
 
-    L.marker(walk.coords)
+    let myIcon = L.divIcon({ className: "test" });
+
+    L.marker(walk.coords, { icon: myIcon })
       .addTo(this.#map)
       .bindPopup(
         L.popup({
@@ -132,7 +134,7 @@ class App {
           minWidth: 100,
           autoClose: false,
           closeOnClick: false,
-          className: `type-popup`,
+          className: `${walk.type}-popup`,
         }).setContent(
           `${walk.type === "casual" ? "⭐️ " : "❤️ "} ${walk.description}`
         )
