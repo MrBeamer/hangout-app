@@ -36,6 +36,10 @@ form {
 }
 
 .hidden {
+  opacity: 0;
+}
+
+.form__row--hidden {
   display: none;
 }
 
