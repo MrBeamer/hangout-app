@@ -133,14 +133,16 @@ class App {
           autoClose: false,
           closeOnClick: false,
           className: `type-popup`,
-        }).setContent(walk.description)
+        }).setContent(
+          `${walk.type === "casual" ? "⭐️ " : "❤️ "} ${walk.description}`
+        )
       )
       .openPopup();
   }
 
   _renderWalk(walk) {
     let html = `    
-    <li class="walk ${walk.type}--casual" data-id="${walk.id}">
+    <li class="walk walk--${walk.type}" data-id="${walk.id}">
       <h2 class="walk__title">${walk.description}</h2>
       <div class="walk__details">
         <span class="walk__icon">👣</span>
@@ -171,7 +173,7 @@ class App {
     </li>`;
     }
 
-    formContainer.insertAdjacentHTML("beforeend", html);
+    formContainer.insertAdjacentHTML("afterend", html);
   }
 
   _showForm(mapE) {
@@ -203,10 +205,7 @@ class App {
     ambienceSlider.value = 0;
     walkTypeSelect.value = "choose";
 
-    // formContainer.classList.add("hidden");
-    // formContainer.style.display = "none";
     formContainer.classList.add("hidden");
-    // setTimeout(() => (formContainer.style.display = "grid"), 1000);
   }
 
   _moveToPopup(event) {
