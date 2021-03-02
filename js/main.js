@@ -1,6 +1,6 @@
 "use strict";
 
-// Setting Date through index
+// Setting date through index
 const months = [
   "January",
   "February",
@@ -38,8 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////// BRAIN of the App
 class App {
   #map;
@@ -48,6 +46,8 @@ class App {
 
   constructor() {
     this._getLocation();
+    this._getLocalStorage();
+
     formContainer.addEventListener("submit", this._newWalk.bind(this));
     walkTypeSelect.addEventListener(
       "change",
@@ -87,6 +87,8 @@ class App {
 
     // Hides form and resets it
     this._hideForm();
+    // Set local storage to all walks
+    this._setLocalStorage();
   }
 
   _getLocation() {
@@ -121,9 +123,6 @@ class App {
   }
 
   _renderMarker(walk) {
-    // const { lat, lng } = event.latlng;
-    // const coords = [lat, lng];
-
     let myIcon = L.divIcon({ className: "test" });
 
     L.marker(walk.coords, { icon: myIcon })
@@ -184,20 +183,9 @@ class App {
   }
 
   _toggleRomanticLvl() {
-    if (walkTypeSelect.value === "romantic") {
-      romanticSlider
-        .closest(".form__row")
-        .classList.remove("form__row--hidden");
+    ambienceSlider.closest(".form__row").classList.toggle("form__row--hidden");
 
-      ambienceSlider.closest(".form__row").classList.add("form__row--hidden");
-    }
-    if (walkTypeSelect.value === "casual") {
-      ambienceSlider
-        .closest(".form__row")
-        .classList.toggle("form__row--hidden");
-
-      romanticSlider.closest(".form__row").classList.add("form__row--hidden");
-    }
+    romanticSlider.closest(".form__row").classList.toggle("form__row--hidden");
   }
 
   _hideForm() {
@@ -205,7 +193,6 @@ class App {
     durationSlider.value = 0;
     romanticSlider.value = 0;
     ambienceSlider.value = 0;
-    walkTypeSelect.value = "choose";
 
     formContainer.classList.add("hidden");
   }
@@ -225,12 +212,30 @@ class App {
       },
     });
   }
+
+  _setLocalStorage() {
+    localStorage.setItem("walks", JSON.stringify(this.#walks));
+  }
+
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem("walks"));
+    if (!data) return;
+    this.#walks = data;
+
+    this.#walks.forEach((walk) => {
+      this._renderWalk(walk);
+    });
+  }
+
+  reset() {
+    localStorage.removeItem("walks");
+    location.reload();
+  }
 }
 
 const app = new App();
 
 /// parent class
-
 class Walk {
   date = new Date();
   id = (Date.now() + "").slice(-10);
@@ -247,6 +252,7 @@ class Walk {
   }
 }
 
+// child classes which inheritance from Walk
 class Romantic extends Walk {
   type = "romantic";
 
@@ -265,3 +271,12 @@ class Casual extends Walk {
     this._setDescription();
   }
 }
+
+///////////////////////////////////
+// TO DOES
+// add polygon lines
+// rework cards
+// check type error and toggle casual and romantic
+// map pin cards are maybe to big - smaller?
+// fix mobile views
+// footer is not responsive - delete or keep?
