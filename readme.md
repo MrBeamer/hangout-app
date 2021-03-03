@@ -1,6 +1,13 @@
 ## General info
 
-🛠 Work in progress - Hangout 👣 - mark your favorite casual or romantic walking routes and save them in localStorage
+🛠 Work in progress - Hangout 👣 - mark your favorite casual or romantic walking routes and save them
+
+## Functionality info
+
+- Set markers through user input
+- Create new walks through user input
+- Save new walks to localStorage
+- Delete walks
 
 ## Technologies
 

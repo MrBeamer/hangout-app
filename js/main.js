@@ -54,6 +54,7 @@ class App {
       this._toggleRomanticLvl.bind(this)
     );
     walksContainer.addEventListener("click", this._moveToPopup.bind(this));
+    document.addEventListener("click", this._deleteWalk.bind(this));
   }
 
   _newWalk(event) {
@@ -144,6 +145,7 @@ class App {
   _renderWalk(walk) {
     let html = `    
     <li class="walk walk--${walk.type}" data-id="${walk.id}">
+    <a href="#" class="walk--delete"> X</a>
       <h2 class="walk__title">${walk.description}</h2>
       <div class="walk__details">
         <span class="walk__icon">👣</span>
@@ -231,6 +233,22 @@ class App {
     localStorage.removeItem("walks");
     location.reload();
   }
+
+  _deleteWalk(event) {
+    if (!event.target.classList.contains("walk--delete")) return;
+    const walkChild = event.target;
+    // console.log(walkChild);
+    let listElementID = walkChild.closest("li").dataset.id;
+    // console.log(listElementID);
+
+    const indexOfWalkToDelete = this.#walks.findIndex(
+      (walk) => walk.id === listElementID
+    );
+    // console.log(indexOfWalkToDelete);
+    this.#walks.splice(indexOfWalkToDelete, 1);
+    this._setLocalStorage();
+    location.reload();
+  }
 }
 
 const app = new App();
@@ -271,12 +289,3 @@ class Casual extends Walk {
     this._setDescription();
   }
 }
-
-///////////////////////////////////
-// TO DOES
-// add polygon lines
-// rework cards
-// check type error and toggle casual and romantic
-// map pin cards are maybe to big - smaller?
-// fix mobile views
-// footer is not responsive - delete or keep?
