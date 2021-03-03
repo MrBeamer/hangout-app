@@ -72,6 +72,17 @@ form .btn {
 
 /* Generated cards */
 
+.walk--delete {
+  float: right;
+  color: #ffff;
+  margin-top: 5px;
+}
+
+.walk--delete:hover {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+
 .walks {
   overflow-y: scroll;
   max-height: 55%;
