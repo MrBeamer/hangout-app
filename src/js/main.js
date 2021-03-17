@@ -1,5 +1,4 @@
 "use strict";
-
 // Setting date through index
 const months = [
   "January",
@@ -106,6 +105,7 @@ class App {
   _loadMap(position) {
     const { latitude, longitude } = position.coords;
     const coords = [latitude, longitude];
+    console.log("coords");
 
     // creates map
     this.#map = L.map("map").setView(coords, 13);
