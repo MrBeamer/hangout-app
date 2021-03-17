@@ -3,4 +3,7 @@ node_modules
 .parcel-cache
 dist
 .cache
+node_modules
+materialize-css
+node_modules/materialize-css
 
