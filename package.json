@@ -1,7 +1,23 @@
 {
+  "name": "hangout-app",
+  "version": "1.0.0",
+  "description": "hangout-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrBeamer/hangout-app.git"
+  },
+  "author": "Michael Beamer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrBeamer/hangout-app/issues"
+  },
+  "homepage": "https://github.com/MrBeamer/hangout-app#readme",
   "dependencies": {
-    "live-server": "^1.2.1",
-    "materialize-css": "^1.0.0",
-    "nouislider": "^14.6.3"
+    "leaflet": "^1.7.1",
+    "materialize-css": "^1.0.0-rc.2"
   }
 }

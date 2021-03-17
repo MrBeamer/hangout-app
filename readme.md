@@ -14,7 +14,7 @@
 Project is created with:
 
 - JavaScript
-- Front-end Framework Materialize
+- Frontend Framework Materialize
 - Leafletjs API
 
 ## Live Preview
