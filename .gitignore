@@ -1,6 +1,5 @@
 node_modules
 .DS_Store
-.parcel-cache
-dist
-.cache
+node_modules/materialize-css/
+materialize-css
 
